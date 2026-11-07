@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d4gnxy51vjqgr"]
+
+[ext_resource type="Script" uid="uid://b38cluac1gw02" path="res://puerta.gd" id="1_bek8y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6m5sq"]
+size = Vector3(1.8, 3, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bek8y"]
+albedo_color = Color(0.1243578, 0.075798936, 0.3172174, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mff1"]
+size = Vector3(1.8, 3, 0.15)
+
+[node name="puerta" type="StaticBody3D" unique_id=398239212 groups=["puertas"]]
+script = ExtResource("1_bek8y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=650715367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("BoxMesh_6m5sq")
+surface_material_override/0 = SubResource("StandardMaterial3D_bek8y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=864951741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+shape = SubResource("BoxShape3D_7mff1")

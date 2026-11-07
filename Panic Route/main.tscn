@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
 [ext_resource type="Script" uid="uid://cebpnnfk7i3yx" path="res://civil.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://ggocp2c05y6n" path="res://accion_puerta.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://btbidf61ylt57" path="res://personaje/character-male-d.glb" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d4gnxy51vjqgr" path="res://puerta.tscn" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="CieloMat"]
 
@@ -16,6 +18,9 @@ sky = SubResource("Cielo")
 
 [sub_resource type="PlaneMesh" id="PisoMalla"]
 size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_color = Color(7.5242855e-07, 9.4719486e-05, 0, 1)
 
 [sub_resource type="BoxShape3D" id="PisoForma"]
 size = Vector3(30, 0.2, 30)
@@ -47,8 +52,9 @@ shadow_enabled = true
 [node name="Suelo" type="StaticBody3D" parent="." unique_id=2034325901]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo" unique_id=1293648228]
-transform = Transform3D(0.97658235, 0, 0.21514392, 0, 1, 0, -0.21514392, 0, 0.97658235, 0, 0, 0)
+transform = Transform3D(0.97658235, 0, 0.21514392, 0, 1, 0, -0.21514392, 0, 0.97658235, -0.006456375, 0.024651527, -0.011817455)
 mesh = SubResource("PisoMalla")
+surface_material_override/0 = SubResource("StandardMaterial3D_lquwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo" unique_id=1409721171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -100,6 +106,9 @@ shape = SubResource("Capsula")
 [node name="Modelo" parent="Personaje" unique_id=932822192 instance=ExtResource("2_modelo")]
 transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
 
+[node name="AccionPuerta" type="Node" parent="Personaje" unique_id=295037359 groups=["puertas"]]
+script = ExtResource("3_7mycd")
+
 [node name="civil" type="CharacterBody3D" parent="." unique_id=1378393083 node_paths=PackedStringArray("objetivo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("3_1bvp3")
@@ -111,5 +120,17 @@ shape = SubResource("CapsuleShape3D_m5r0x")
 
 [node name="Modelo" parent="civil" unique_id=972701988 instance=ExtResource("4_lquwl")]
 transform = Transform3D(-2.6, 0, -2.2729921e-07, 0, 2.6, 0, 2.2729921e-07, 0, -2.6, 0, 0, 0)
+
+[node name="puerta" parent="." unique_id=398239212 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 5)
+
+[node name="puerta2" parent="." unique_id=1241838731 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 2)
+
+[node name="puerta3" parent="." unique_id=957830227 instance=ExtResource("7_272bh")]
+transform = Transform3D(0.9998387, 0.01576252, -0.008603356, -0.015735485, 0.99987113, 0.0032005378, 0.008652701, -0.003064627, 0.99995786, -1.025039, 1.5295033, 4.2391434)
+
+[node name="puerta4" parent="." unique_id=1385635782 instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92968893, 1.5, -5.5241475)
 
 [editable path="civil/Modelo"]
