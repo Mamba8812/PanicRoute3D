@@ -11,6 +11,7 @@ func alternar():
 	en_movimiento = true
 	abierta = not abierta
 	
+	# Rota 90 grados en el eje Y (de forma lateral como una bisagra)
 	var destino_angulo = deg_to_rad(90.0) if abierta else 0.0
 	
 	var tween = create_tween()

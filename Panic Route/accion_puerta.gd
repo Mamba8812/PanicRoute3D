@@ -1,24 +1,41 @@
 extends Node
 
+enum Estado { LISTA, ACTIVA, RECARGA }
+
 @export var tecla = "puerta"
+@export var duracion = 1.5
+@export var recarga = 1.0
+
 @onready var pj = get_parent()
-var usos = 0
+var estado = Estado.LISTA
+var tiempo = 0.0
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed(tecla):
-		usos += 1
-		print("empieza: ", tecla, " · uso número ", usos)
-		var golpe = lanzar_rayo()
-		if not golpe.is_empty():
-			var objeto = golpe.collider
-			if objeto.has_method("alternar"):
-				objeto.alternar()
+	tiempo -= delta
+	match estado:
+		Estado.LISTA:
+			if Input.is_action_just_pressed(tecla):
+				var personaje = get_tree().current_scene.get_node_or_null("Personaje")
+				if personaje:
+					var distancia = pj.global_position.distance_to(personaje.global_position)                
+					if distancia < 2.0:
+						empezar()
+		Estado.ACTIVA:
+			if tiempo <= 0.001:
+				terminar()
+		Estado.RECARGA:
+			if tiempo <= 0.001:
+				estado = Estado.LISTA
 
-func lanzar_rayo():
-	var cam = get_viewport().get_camera_3d()
-	var punto = get_viewport().get_mouse_position()
-	var origen = cam.project_ray_origin(punto)
-	var hacia = origen + cam.project_ray_normal(punto) * 20.0
-	var consulta = PhysicsRayQueryParameters3D.create(origen, hacia)
-	consulta.exclude = [pj.get_rid()]
-	return pj.get_world_3d().direct_space_state.intersect_ray(consulta)
+func empezar():
+	estado = Estado.ACTIVA
+	tiempo = duracion
+	print("empieza: ", tecla)
+
+	if pj.has_method("alternar"):
+		pj.alternar()
+
+func terminar():
+	estado = Estado.RECARGA
+	tiempo = recarga
+	print("termina: ", tecla)
