@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cchv43eug6720" path="res://personaje.gd" id="1_pj"]
 [ext_resource type="PackedScene" uid="uid://bkmexfnojlmxi" path="res://personaje/character-male-a.glb" id="2_modelo"]
 [ext_resource type="Script" uid="uid://cebpnnfk7i3yx" path="res://civil.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://d3toawbd7umng" path="res://apuntar.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://btbidf61ylt57" path="res://personaje/character-male-d.glb" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d4gnxy51vjqgr" path="res://puerta.tscn" id="7_272bh"]
 
@@ -104,6 +105,9 @@ shape = SubResource("Capsula")
 
 [node name="Modelo" parent="Personaje" unique_id=932822192 instance=ExtResource("2_modelo")]
 transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
+
+[node name="Apuntar" type="Node" parent="Personaje" unique_id=624299221]
+script = ExtResource("3_7mycd")
 
 [node name="civil" type="CharacterBody3D" parent="." unique_id=1378393083 node_paths=PackedStringArray("objetivo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
