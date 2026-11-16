@@ -1,0 +1,108 @@
+[gd_scene format=3]
+
+[sub_resource type="BoxMesh" id="MesaMesh"]
+size = Vector3(3.3, 0.1, 1.45)
+
+[sub_resource type="StandardMaterial3D" id="MaderaMat"]
+albedo_color = Color(0.54, 0.37, 0.24, 1)
+roughness = 0.6
+
+[sub_resource type="BoxMesh" id="BaseMesh"]
+size = Vector3(2.1, 0.7, 0.65)
+
+[sub_resource type="StandardMaterial3D" id="MetalMat"]
+albedo_color = Color(0.18, 0.2, 0.26, 1)
+
+[sub_resource type="BoxMesh" id="AsientoMesh"]
+size = Vector3(0.5, 0.08, 0.5)
+
+[sub_resource type="BoxMesh" id="RespaldoMesh"]
+size = Vector3(0.5, 0.55, 0.08)
+
+[sub_resource type="CylinderMesh" id="PataSillaMesh"]
+top_radius = 0.05
+bottom_radius = 0.2
+height = 0.42
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="SillaMat"]
+albedo_color = Color(0.15, 0.22, 0.36, 1)
+
+[sub_resource type="BoxShape3D" id="ColMesa"]
+size = Vector3(3.3, 0.85, 1.45)
+
+[node name="MesaJuntas" type="StaticBody3D"]
+
+[node name="Tablero" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, 0)
+mesh = SubResource("MesaMesh")
+surface_material_override/0 = SubResource("MaderaMat")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+mesh = SubResource("BaseMesh")
+surface_material_override/0 = SubResource("MetalMat")
+
+[node name="SillaN1_Asiento" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.44, -0.95)
+mesh = SubResource("AsientoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaN1_Resp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.74, -1.18)
+mesh = SubResource("RespaldoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaN1_Pata" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.21, -0.95)
+mesh = SubResource("PataSillaMesh")
+surface_material_override/0 = SubResource("MetalMat")
+
+[node name="SillaN2_Asiento" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.44, -0.95)
+mesh = SubResource("AsientoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaN2_Resp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.74, -1.18)
+mesh = SubResource("RespaldoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaN2_Pata" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.21, -0.95)
+mesh = SubResource("PataSillaMesh")
+surface_material_override/0 = SubResource("MetalMat")
+
+[node name="SillaS1_Asiento" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.44, 0.95)
+mesh = SubResource("AsientoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaS1_Resp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.74, 1.18)
+mesh = SubResource("RespaldoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaS1_Pata" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.21, 0.95)
+mesh = SubResource("PataSillaMesh")
+surface_material_override/0 = SubResource("MetalMat")
+
+[node name="SillaS2_Asiento" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.44, 0.95)
+mesh = SubResource("AsientoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaS2_Resp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.74, 1.18)
+mesh = SubResource("RespaldoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="SillaS2_Pata" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.21, 0.95)
+mesh = SubResource("PataSillaMesh")
+surface_material_override/0 = SubResource("MetalMat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.425, 0)
+shape = SubResource("ColMesa")

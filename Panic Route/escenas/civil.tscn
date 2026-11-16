@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c5xblnxg7p00a"]
+
+[ext_resource type="Script" path="res://scripts/civil.gd" id="1_civil"]
+[ext_resource type="PackedScene" uid="uid://btbidf61ylt57" path="res://personaje/character-male-d.glb" id="2_modelo"]
+
+[sub_resource type="CapsuleShape3D" id="Capsula_civil"]
+radius = 0.35
+height = 1.75
+
+[sub_resource type="SphereShape3D" id="ZonaRecogida_shape"]
+radius = 1.8
+
+[node name="Civil" type="CharacterBody3D" groups=["civiles"]]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_civil")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("Capsula_civil")
+
+[node name="Modelo" parent="." instance=ExtResource("2_modelo")]
+transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 1.4
+
+[node name="ZonaRecogida" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaRecogida"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("ZonaRecogida_shape")
+
+[node name="IconoAlerta" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0)
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0.98, 0.92, 1)
+outline_modulate = Color(0.12, 0.14, 0.22, 1)
+text = "[ ! ]"
+font_size = 46
+outline_size = 14
