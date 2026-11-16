@@ -1,0 +1,91 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="PanelEstado" type="PanelContainer" parent="."]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 140.0
+
+[node name="Margin" type="MarginContainer" parent="PanelEstado"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="PanelEstado/Margin"]
+layout_mode = 2
+
+[node name="Rescatados" type="Label" parent="PanelEstado/Margin/VBox"]
+layout_mode = 2
+text = "Rescatados: 0 / 0"
+
+[node name="Bajas" type="Label" parent="PanelEstado/Margin/VBox"]
+layout_mode = 2
+text = "Bajas: 0"
+
+[node name="Salud" type="Label" parent="PanelEstado/Margin/VBox"]
+layout_mode = 2
+text = "Salud: ♥ ♥ ♥"
+
+[node name="Tiempo" type="Label" parent="PanelEstado/Margin/VBox"]
+layout_mode = 2
+text = "Tiempo: 00:00"
+
+[node name="Ayuda" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 14.0
+offset_right = 220.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "WASD: Mover  |  E: Abrir/Cerrar Puerta  |  ESPACIO: Pausa"
+horizontal_alignment = 1
+
+[node name="PanelOverlay" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="PanelOverlay"]
+layout_mode = 2
+alignment = 1
+
+[node name="Titulo" type="Label" parent="PanelOverlay/VBox"]
+layout_mode = 2
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="Detalle" type="Label" parent="PanelOverlay/VBox"]
+layout_mode = 2
+text = "Detalle"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Botones" type="HBoxContainer" parent="PanelOverlay/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="PanelOverlay/VBox/Botones"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="BtnReiniciar" type="Button" parent="PanelOverlay/VBox/Botones"]
+layout_mode = 2
+text = "Reiniciar"

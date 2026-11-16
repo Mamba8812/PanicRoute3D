@@ -2,44 +2,43 @@ extends Node
 
 @export var tecla = "disparar"
 @export var alcance = 20.0
-@export_enum("Personaje", "Centro de la cámara", "Mouse") var desde = 2 # Por defecto Mouse para el juego
+@export_enum("Personaje", "Centro de la cámara", "Mouse") var desde = 2
 @export var cadencia = 0.25
 
 @onready var pj = get_parent()
 var origen = Vector3.ZERO
 var espera = 0.0
 
+
 func _physics_process(delta):
 	espera -= delta
-	
-	if Input.is_action_pressed(tecla) and espera <= 0.001:
+
+	if Input.is_action_just_pressed(tecla) and espera <= 0.0:
 		var golpe = lanzar_rayo()
 		if golpe.is_empty():
-			print("no le dio a nada en ", alcance, " m")
 			return
-			
+
 		espera = cadencia
-		var d = snappedf(origen.distance_to(golpe.position), 0.01)
-		print("le dio a ", golpe.collider.name, " a ", d, " m")
-		
-		if golpe.collider.has_method("alternar"):
-			golpe.collider.alternar()
-		elif golpe.collider.has_method("recibir_golpe"):
+		# Las puertas ahora solo se abren con la tecla 'E' desde accion_puerta.gd.
+		if golpe.collider.has_method("recibir_golpe"):
 			golpe.collider.recibir_golpe(25)
 
+
 func lanzar_rayo():
-	var hacia
+	var hacia: Vector3
 	if desde == 0:
 		origen = pj.global_position + Vector3(0, 0.8, 0)
 		hacia = origen - pj.global_basis.z * alcance
 	else:
 		var cam = get_viewport().get_camera_3d()
+		if cam == null:
+			return {}
 		var punto = get_viewport().get_visible_rect().size / 2
 		if desde == 2:
 			punto = get_viewport().get_mouse_position()
 		origen = cam.project_ray_origin(punto)
 		hacia = origen + cam.project_ray_normal(punto) * alcance
-		
+
 	var consulta = PhysicsRayQueryParameters3D.create(origen, hacia)
 	consulta.exclude = [pj.get_rid()]
 	return pj.get_world_3d().direct_space_state.intersect_ray(consulta)

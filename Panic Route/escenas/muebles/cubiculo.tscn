@@ -1,0 +1,99 @@
+[gd_scene format=3]
+
+[sub_resource type="BoxMesh" id="MesaMesh"]
+size = Vector3(2.5, 0.08, 0.95)
+
+[sub_resource type="StandardMaterial3D" id="MaderaMat"]
+albedo_color = Color(0.6, 0.44, 0.3, 1)
+
+[sub_resource type="BoxMesh" id="BaseMesh"]
+size = Vector3(2.4, 0.7, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="MetalMat"]
+albedo_color = Color(0.2, 0.23, 0.3, 1)
+
+[sub_resource type="BoxMesh" id="DivisorMesh"]
+size = Vector3(2.5, 1.3, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="DivisorMat"]
+albedo_color = Color(0.28, 0.35, 0.46, 1)
+
+[sub_resource type="BoxMesh" id="DivisorMedioMesh"]
+size = Vector3(0.08, 1.25, 0.9)
+
+[sub_resource type="BoxMesh" id="MonitorMesh"]
+size = Vector3(0.65, 0.4, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="PantallaMat"]
+albedo_color = Color(0.22, 0.6, 0.96, 1)
+emission_enabled = true
+emission = Color(0.18, 0.52, 0.92, 1)
+emission_energy_multiplier = 0.85
+
+[sub_resource type="BoxMesh" id="SillaAsientoMesh"]
+size = Vector3(0.48, 0.08, 0.48)
+
+[sub_resource type="BoxMesh" id="SillaRespMesh"]
+size = Vector3(0.48, 0.52, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="SillaMat"]
+albedo_color = Color(0.15, 0.2, 0.32, 1)
+
+[sub_resource type="BoxShape3D" id="ColCubiculo"]
+size = Vector3(2.5, 1.3, 0.95)
+
+[node name="Cubiculo" type="StaticBody3D"]
+
+[node name="Mesa" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, 0)
+mesh = SubResource("MesaMesh")
+surface_material_override/0 = SubResource("MaderaMat")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+mesh = SubResource("BaseMesh")
+surface_material_override/0 = SubResource("MetalMat")
+
+[node name="DivisorTrasero" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, -0.45)
+mesh = SubResource("DivisorMesh")
+surface_material_override/0 = SubResource("DivisorMat")
+
+[node name="DivisorCentral" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+mesh = SubResource("DivisorMedioMesh")
+surface_material_override/0 = SubResource("DivisorMat")
+
+[node name="Monitor1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62, 1.02, -0.22)
+mesh = SubResource("MonitorMesh")
+surface_material_override/0 = SubResource("PantallaMat")
+
+[node name="Monitor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62, 1.02, -0.22)
+mesh = SubResource("MonitorMesh")
+surface_material_override/0 = SubResource("PantallaMat")
+
+[node name="Silla1_Asiento" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62, 0.42, 0.72)
+mesh = SubResource("SillaAsientoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="Silla1_Resp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62, 0.7, 0.94)
+mesh = SubResource("SillaRespMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="Silla2_Asiento" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62, 0.42, 0.72)
+mesh = SubResource("SillaAsientoMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="Silla2_Resp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62, 0.7, 0.94)
+mesh = SubResource("SillaRespMesh")
+surface_material_override/0 = SubResource("SillaMat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+shape = SubResource("ColCubiculo")

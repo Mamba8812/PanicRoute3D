@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[sub_resource type="CylinderMesh" id="MacetaMesh"]
+top_radius = 0.28
+bottom_radius = 0.22
+height = 0.45
+radial_segments = 10
+
+[sub_resource type="StandardMaterial3D" id="MacetaMat"]
+albedo_color = Color(0.28, 0.31, 0.38, 1)
+
+[sub_resource type="SphereMesh" id="HojasMesh1"]
+radius = 0.36
+height = 0.65
+radial_segments = 10
+rings = 6
+
+[sub_resource type="SphereMesh" id="HojasMesh2"]
+radius = 0.26
+height = 0.5
+radial_segments = 10
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="HojasMat"]
+albedo_color = Color(0.18, 0.48, 0.26, 1)
+
+[node name="Planta" type="Node3D"]
+
+[node name="Maceta" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225, 0)
+mesh = SubResource("MacetaMesh")
+surface_material_override/0 = SubResource("MacetaMat")
+
+[node name="Copa1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68, 0)
+mesh = SubResource("HojasMesh1")
+surface_material_override/0 = SubResource("HojasMat")
+
+[node name="Copa2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 1.0, -0.05)
+mesh = SubResource("HojasMesh2")
+surface_material_override/0 = SubResource("HojasMat")

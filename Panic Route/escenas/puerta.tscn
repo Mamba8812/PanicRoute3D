@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d4gnxy51vjqgr"]
+
+[ext_resource type="Script" path="res://scripts/puerta.gd" id="1_bek8y"]
+[ext_resource type="Script" path="res://scripts/accion_puerta.gd" id="2_8gvf5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6m5sq"]
+size = Vector3(0.4, 3, 2.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bek8y"]
+albedo_color = Color(0.1243578, 0.075798936, 0.3172174, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mff1"]
+size = Vector3(0.4, 3, 2.6)
+
+[sub_resource type="BoxShape3D" id="ZonaInteraccion_shape"]
+size = Vector3(3.2, 2.5, 3.2)
+
+[node name="Puerta" type="StaticBody3D" groups=["puertas"]]
+script = ExtResource("1_bek8y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6m5sq")
+surface_material_override/0 = SubResource("StandardMaterial3D_bek8y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7mff1")
+
+[node name="ZonaInteraccion" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaInteraccion"]
+shape = SubResource("ZonaInteraccion_shape")
+
+[node name="AccionPuerta" type="Node" parent="."]
+script = ExtResource("2_8gvf5")

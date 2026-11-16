@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[sub_resource type="BoxMesh" id="CuerpoMesh"]
+size = Vector3(1.6, 1.85, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="CuerpoMat"]
+albedo_color = Color(0.24, 0.28, 0.36, 1)
+
+[sub_resource type="BoxMesh" id="PuertaMesh"]
+size = Vector3(0.72, 1.7, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="PuertaMat"]
+albedo_color = Color(0.32, 0.37, 0.46, 1)
+
+[sub_resource type="BoxShape3D" id="ColArchivador"]
+size = Vector3(1.6, 1.85, 0.55)
+
+[node name="Archivador" type="StaticBody3D"]
+
+[node name="Cuerpo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
+mesh = SubResource("CuerpoMesh")
+surface_material_override/0 = SubResource("CuerpoMat")
+
+[node name="PuertaIzq" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.925, 0.28)
+mesh = SubResource("PuertaMesh")
+surface_material_override/0 = SubResource("PuertaMat")
+
+[node name="PuertaDer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.925, 0.28)
+mesh = SubResource("PuertaMesh")
+surface_material_override/0 = SubResource("PuertaMat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
+shape = SubResource("ColArchivador")

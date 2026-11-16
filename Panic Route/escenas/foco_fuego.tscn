@@ -1,0 +1,146 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/foco_fuego.gd" id="1_ff"]
+
+[sub_resource type="CylinderMesh" id="BrasasMesh"]
+top_radius = 1.15
+bottom_radius = 1.25
+height = 0.08
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="BrasasMat"]
+albedo_color = Color(0.18, 0.05, 0.03, 1)
+emission_enabled = true
+emission = Color(0.95, 0.22, 0.02, 1)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="StandardMaterial3D" id="LlamaPartMat"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="LlamaSphere"]
+material = SubResource("LlamaPartMat")
+radius = 0.42
+height = 0.85
+radial_segments = 12
+rings = 6
+
+[sub_resource type="Curve" id="CurvaEscalaLlama"]
+_data = [Vector2(0, 0.45), 0.0, 1.8, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.08), -1.4, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="GradienteLlama"]
+offsets = PackedFloat32Array(0, 0.25, 0.65, 1)
+colors = PackedColorArray(1, 0.96, 0.65, 0.95, 1, 0.58, 0.05, 0.9, 0.92, 0.16, 0.02, 0.7, 0.2, 0.02, 0.01, 0)
+
+[sub_resource type="StandardMaterial3D" id="HumoPartMat"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="HumoSphere"]
+material = SubResource("HumoPartMat")
+radius = 0.55
+height = 1.0
+radial_segments = 10
+rings = 5
+
+[sub_resource type="Curve" id="CurvaEscalaHumo"]
+_data = [Vector2(0, 0.35), 0.0, 1.1, 0, 0, Vector2(0.6, 1), 0.5, 0.5, 0, 0, Vector2(1, 1.35), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="GradienteHumo"]
+offsets = PackedFloat32Array(0, 0.2, 0.75, 1)
+colors = PackedColorArray(0.22, 0.12, 0.08, 0, 0.14, 0.11, 0.11, 0.58, 0.1, 0.09, 0.1, 0.42, 0.08, 0.08, 0.09, 0)
+
+[sub_resource type="SphereMesh" id="ChispaSphere"]
+material = SubResource("LlamaPartMat")
+radius = 0.07
+height = 0.14
+radial_segments = 6
+rings = 4
+
+[sub_resource type="SphereShape3D" id="PeligroShape"]
+radius = 1.35
+
+[node name="FocoFuego" type="Node3D"]
+script = ExtResource("1_ff")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+mesh = SubResource("BrasasMesh")
+surface_material_override/0 = SubResource("BrasasMat")
+
+[node name="ParticulasLlamas" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+amount = 28
+lifetime = 0.95
+preprocess = 0.4
+randomness = 0.3
+mesh = SubResource("LlamaSphere")
+emission_shape = 1
+emission_sphere_radius = 0.65
+direction = Vector3(0, 1, 0)
+spread = 18.0
+gravity = Vector3(0, 2.6, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.6
+scale_amount_min = 0.85
+scale_amount_max = 1.35
+scale_amount_curve = SubResource("CurvaEscalaLlama")
+color_ramp = SubResource("GradienteLlama")
+
+[node name="ParticulasHumo" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+amount = 22
+lifetime = 2.1
+preprocess = 0.5
+randomness = 0.35
+mesh = SubResource("HumoSphere")
+emission_shape = 1
+emission_sphere_radius = 0.55
+direction = Vector3(0, 1, 0)
+spread = 22.0
+gravity = Vector3(0, 1.4, 0)
+initial_velocity_min = 0.7
+initial_velocity_max = 1.3
+scale_amount_min = 0.8
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("CurvaEscalaHumo")
+color_ramp = SubResource("GradienteHumo")
+
+[node name="ParticulasChispas" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+amount = 12
+lifetime = 1.2
+randomness = 0.5
+mesh = SubResource("ChispaSphere")
+emission_shape = 1
+emission_sphere_radius = 0.6
+direction = Vector3(0, 1, 0)
+spread = 32.0
+gravity = Vector3(0, 1.8, 0)
+initial_velocity_min = 1.4
+initial_velocity_max = 2.6
+color = Color(1, 0.8, 0.3, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+light_color = Color(1, 0.45, 0.08, 1)
+light_energy = 2.8
+omni_range = 8.5
+omni_attenuation = 1.2
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+radius = 1.5
+height = 2.0
+
+[node name="ZonaPeligro" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaPeligro"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("PeligroShape")

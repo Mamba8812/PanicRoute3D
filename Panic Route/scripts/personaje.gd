@@ -1,13 +1,52 @@
 extends CharacterBody3D
 
 @export var camara: Camera3D
-@export var speed = 3.0
+@export var speed = 3.5
 @onready var anim = $Modelo/AnimationPlayer
 
 # Enchufes: otros scripts (las acciones del juego) cambian estas tres variables.
 var multiplicador = 1.0     # 1 = rapidez normal, 0.5 = la mitad, 0 = quieto
 var empuje = Vector3.ZERO   # velocidad extra en m/s (dash, retroceso)
 var accion = ""             # animación de la acción; "" = ninguna
+
+# Fila de rescate: cada civil recogido sigue al último de la fila.
+var cola_rescate: Array[Node3D] = []
+var salud = 3
+var _invulnerable = 0.0
+
+
+func obtener_ultimo_en_fila(civil: Node3D) -> Node3D:
+	cola_rescate = cola_rescate.filter(func(n): return is_instance_valid(n))
+	var lider: Node3D = self if cola_rescate.is_empty() else cola_rescate[-1]
+	if not cola_rescate.has(civil):
+		cola_rescate.append(civil)
+	return lider
+
+
+func salir_de_fila(civil: Node3D):
+	var idx = cola_rescate.find(civil)
+	if idx == -1:
+		return
+	cola_rescate.remove_at(idx)
+	# Re-enlaza al civil que venía detrás con el nuevo líder anterior
+	for i in range(cola_rescate.size()):
+		var c = cola_rescate[i]
+		if is_instance_valid(c):
+			c.objetivo = self if i == 0 else cola_rescate[i - 1]
+
+
+func recibir_dano_fuego(origen_fuego: Vector3):
+	if _invulnerable > 0.0:
+		return
+	_invulnerable = 1.2
+	salud -= 1
+	var dir = (global_position - origen_fuego)
+	dir.y = 0.0
+	if dir.length() > 0.01:
+		empuje = dir.normalized() * 6.0
+	var gm = get_tree().get_first_node_in_group("game_manager")
+	if gm != null:
+		gm.actualizar_salud(salud)
 
 
 func _ready():
@@ -16,12 +55,17 @@ func _ready():
 
 
 func _physics_process(delta):
+	if _invulnerable > 0.0:
+		_invulnerable -= delta
+	empuje = empuje.lerp(Vector3.ZERO, 8.0 * delta)
 	velocity += get_gravity() * delta
 
 	var input_dir = Input.get_vector("move_left", "move_right",
 		"move_up", "move_down")
 	var entrada = Vector3(input_dir.x, 0.0, input_dir.y)
-	var direction = camara.global_basis * entrada
+	var direction = entrada
+	if camara != null:
+		direction = camara.global_basis * entrada
 	direction.y = 0.0
 	direction = direction.normalized()
 
@@ -42,10 +86,8 @@ func _physics_process(delta):
 
 
 # ---------------------------------------------------------------------------
-# PRUEBAS AUTOMÁTICAS. No hace falta entender esta parte: en el Inspector del
-# Personaje elijan "Prueba" (y, si la prueba usa una acción, escriban su nombre
-# en "Accion Prueba"). Con F5 el personaje se mueve solo y escribe los números
-# en el panel Output. La última línea de _physics_process() es _prueba().
+# PRUEBAS AUTOMÁTICAS. En el Inspector del Personaje elijan "Prueba"
+# (y, si la prueba usa una acción, escriban su nombre en "Accion Prueba").
 # ---------------------------------------------------------------------------
 @export_enum("Ninguna", "Avanzar 60 cuadros", "Avanzar 60 y soltar", "Avanzar y la acción desde el cuadro 30", "Mantener la acción 2 s", "Avanzar con la acción 60 cuadros", "Diagonal W+D 60 cuadros") var prueba = 0
 @export var accion_prueba = ""
@@ -111,7 +153,6 @@ func _resumen():
 	return t
 
 
-# Escribe el cuadro exacto en el que cambia cualquier variable "estado".
 var _antes = {}
 
 
