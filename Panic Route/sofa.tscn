@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b52d7kl831wam"]
+
+[ext_resource type="ArrayMesh" uid="uid://bhv3o02vqlt81" path="res://Models/OBJ format/Couch_Large1.obj" id="1_64a6s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mff1"]
+albedo_color = Color(0.36748388, 0.36748388, 0.36748388, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_028rc"]
+albedo_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5pja"]
+size = Vector3(5.490738, 2.0458374, 1.8651123)
+
+[node name="Node2D" type="StaticBody3D" unique_id=57332503]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=770230246]
+mesh = ExtResource("1_64a6s")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+surface_material_override/1 = SubResource("StandardMaterial3D_028rc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1258295001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006690979, 1.0121155, 0.43255615)
+shape = SubResource("BoxShape3D_e5pja")

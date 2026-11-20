@@ -1,10 +1,10 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cql41xrdu12rb"]
 
-[ext_resource type="Script" path="res://scripts/foco_fuego.gd" id="1_ff"]
+[ext_resource type="Script" uid="uid://c4v56rap6ilt1" path="res://scripts/foco_fuego.gd" id="1_ff"]
 
 [sub_resource type="CylinderMesh" id="BrasasMesh"]
-top_radius = 1.15
-bottom_radius = 1.25
+top_radius = 0.5930664
+bottom_radius = 0.6930664
 height = 0.08
 radial_segments = 16
 
@@ -43,7 +43,6 @@ vertex_color_use_as_albedo = true
 [sub_resource type="SphereMesh" id="HumoSphere"]
 material = SubResource("HumoPartMat")
 radius = 0.55
-height = 1.0
 radial_segments = 10
 rings = 5
 
@@ -63,17 +62,17 @@ radial_segments = 6
 rings = 4
 
 [sub_resource type="SphereShape3D" id="PeligroShape"]
-radius = 1.35
+radius = 1.2822887
 
-[node name="FocoFuego" type="Node3D"]
+[node name="FocoFuego" type="Node3D" unique_id=929247615]
 script = ExtResource("1_ff")
 
-[node name="Base" type="MeshInstance3D" parent="."]
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1164166319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
 mesh = SubResource("BrasasMesh")
 surface_material_override/0 = SubResource("BrasasMat")
 
-[node name="ParticulasLlamas" type="CPUParticles3D" parent="."]
+[node name="ParticulasLlamas" type="CPUParticles3D" parent="." unique_id=163229564]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 amount = 28
 lifetime = 0.95
@@ -92,7 +91,7 @@ scale_amount_max = 1.35
 scale_amount_curve = SubResource("CurvaEscalaLlama")
 color_ramp = SubResource("GradienteLlama")
 
-[node name="ParticulasHumo" type="CPUParticles3D" parent="."]
+[node name="ParticulasHumo" type="CPUParticles3D" parent="." unique_id=1783346009]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 amount = 22
 lifetime = 2.1
@@ -111,7 +110,7 @@ scale_amount_max = 1.4
 scale_amount_curve = SubResource("CurvaEscalaHumo")
 color_ramp = SubResource("GradienteHumo")
 
-[node name="ParticulasChispas" type="CPUParticles3D" parent="."]
+[node name="ParticulasChispas" type="CPUParticles3D" parent="." unique_id=1758414771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 amount = 12
 lifetime = 1.2
@@ -126,21 +125,21 @@ initial_velocity_min = 1.4
 initial_velocity_max = 2.6
 color = Color(1, 0.8, 0.3, 1)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1259622229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 light_color = Color(1, 0.45, 0.08, 1)
 light_energy = 2.8
 omni_range = 8.5
 omni_attenuation = 1.2
 
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." unique_id=1094314714]
 radius = 1.5
 height = 2.0
 
-[node name="ZonaPeligro" type="Area3D" parent="."]
+[node name="ZonaPeligro" type="Area3D" parent="." unique_id=1530762974]
 collision_layer = 0
 collision_mask = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaPeligro"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaPeligro" unique_id=2063058838]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("PeligroShape")

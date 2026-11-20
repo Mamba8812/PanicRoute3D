@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8pukuoromx8s"
+path="res://.godot/imported/Houseplant_6.obj-fb8b223d6a71156007cdf9638ef50583.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Houseplant_6.obj-fb8b223d6a71156007cdf9638ef50583.mesh"]
+
+source_file="res://Models/OBJ format/Houseplant_6.obj"
+dest_files=["res://.godot/imported/Houseplant_6.obj-fb8b223d6a71156007cdf9638ef50583.mesh", "res://.godot/imported/Houseplant_6.obj-fb8b223d6a71156007cdf9638ef50583.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

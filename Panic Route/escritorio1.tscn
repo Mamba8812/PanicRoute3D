@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dlrhnwhecojyy"]
+
+[ext_resource type="ArrayMesh" uid="uid://kjyun4ge4wfj" path="res://Models/OBJ format/Desk.obj" id="1_o72lx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mff1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh110"]
+albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlqiu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udt4t"]
+albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ektiu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agtqk"]
+albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apxx2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imjgs"]
+albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmhq5"]
+albedo_color = Color(0.61960787, 0.4509804, 0.3019608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5c6p"]
+albedo_color = Color(0.32361087, 0.22897188, 0.14533746, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mff1"]
+size = Vector3(1.7993774, 1.1009521, 0.830513)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1557948011]
+
+[node name="Desk" type="MeshInstance3D" parent="." unique_id=1831711207]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.31416488, 0, 0.35461164)
+mesh = ExtResource("1_o72lx")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+surface_material_override/1 = SubResource("StandardMaterial3D_wh110")
+surface_material_override/2 = SubResource("StandardMaterial3D_hlqiu")
+surface_material_override/3 = SubResource("StandardMaterial3D_udt4t")
+surface_material_override/4 = SubResource("StandardMaterial3D_ektiu")
+surface_material_override/5 = SubResource("StandardMaterial3D_agtqk")
+surface_material_override/6 = SubResource("StandardMaterial3D_apxx2")
+surface_material_override/7 = SubResource("StandardMaterial3D_imjgs")
+surface_material_override/8 = SubResource("StandardMaterial3D_vmhq5")
+surface_material_override/9 = SubResource("StandardMaterial3D_q5c6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1471785289]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.31782532, 0.5515651, 0.28339243)
+shape = SubResource("BoxShape3D_7mff1")

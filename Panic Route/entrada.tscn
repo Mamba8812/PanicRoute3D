@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://648k6hjfgrc0"]
+
+[ext_resource type="PackedScene" uid="uid://cygmfjn2h0ot1" path="res://Models/,,,/wall-doorway-square.fbx" id="1_y4pcb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q73e0"]
+size = Vector3(0.42797852, 3.5493774, 1)
+
+[node name="Node3D" type="StaticBody3D" unique_id=654293894]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1970929553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0069978833, 1.8092786, -1.3325702)
+shape = SubResource("BoxShape3D_q73e0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=668067633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0069978833, 1.8092786, 1.5701898)
+shape = SubResource("BoxShape3D_q73e0")
+
+[node name="wall-doorway-square" parent="." unique_id=635217690 instance=ExtResource("1_y4pcb")]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 2, -0.015193839, -7.450581e-09, 0.1091475)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cs27i38ja8olr"]
+
+[ext_resource type="ArrayMesh" uid="uid://1vd2lerru27l" path="res://Models/OBJ format/OfficeChair.obj" id="1_xt87m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mff1"]
+size = Vector3(1, 1.7050781, 1.0244141)
+
+[node name="Node3D" type="Node3D" unique_id=236555470]
+
+[node name="OfficeChair" type="MeshInstance3D" parent="." unique_id=305588275]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = ExtResource("1_xt87m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1317663337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86816406, -0.05419922)
+shape = SubResource("BoxShape3D_7mff1")

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brbp7f6siwrm8"
+path="res://.godot/imported/Light_Floor2.obj-dc0a18fcf0b7adffc994cc99c6ed64dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Light_Floor2.obj-dc0a18fcf0b7adffc994cc99c6ed64dd.mesh"]
+
+source_file="res://Models/OBJ format/Light_Floor2.obj"
+dest_files=["res://.godot/imported/Light_Floor2.obj-dc0a18fcf0b7adffc994cc99c6ed64dd.mesh", "res://.godot/imported/Light_Floor2.obj-dc0a18fcf0b7adffc994cc99c6ed64dd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

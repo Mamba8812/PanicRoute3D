@@ -1,40 +1,40 @@
 [gd_scene format=3 uid="uid://c5xblnxg7p00a"]
 
-[ext_resource type="Script" path="res://scripts/civil.gd" id="1_civil"]
+[ext_resource type="Script" uid="uid://cebpnnfk7i3yx" path="res://scripts/civil.gd" id="1_civil"]
 [ext_resource type="PackedScene" uid="uid://btbidf61ylt57" path="res://personaje/character-male-d.glb" id="2_modelo"]
 
 [sub_resource type="CapsuleShape3D" id="Capsula_civil"]
-radius = 0.35
+radius = 0.43408203
 height = 1.75
 
 [sub_resource type="SphereShape3D" id="ZonaRecogida_shape"]
-radius = 1.8
+radius = 2.3409202
 
-[node name="Civil" type="CharacterBody3D" groups=["civiles"]]
+[node name="Civil" type="CharacterBody3D" unique_id=377909385 groups=["civiles"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 4
-collision_mask = 1
 script = ExtResource("1_civil")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1082620380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 shape = SubResource("Capsula_civil")
 
-[node name="Modelo" parent="." instance=ExtResource("2_modelo")]
-transform = Transform3D(-2.6, 0, 0, 0, 2.6, 0, 0, 0, -2.6, 0, 0, 0)
+[node name="Modelo" parent="." unique_id=287880508 instance=ExtResource("2_modelo")]
+transform = Transform3D(-2.6, 0, -2.2729921e-07, 0, 2.6, 0, 2.2729921e-07, 0, -2.6, 0, 0, 0)
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1596495167]
 path_desired_distance = 0.5
 target_desired_distance = 1.4
 
-[node name="ZonaRecogida" type="Area3D" parent="."]
+[node name="ZonaRecogida" type="Area3D" parent="." unique_id=1007105860]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaRecogida"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaRecogida" unique_id=808653708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("ZonaRecogida_shape")
 
-[node name="IconoAlerta" type="Label3D" parent="."]
+[node name="IconoAlerta" type="Label3D" parent="." unique_id=348993628]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0)
 billboard = 1
 no_depth_test = true

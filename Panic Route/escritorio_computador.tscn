@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bptes8d0xs7uy"]
+
+[ext_resource type="PackedScene" uid="uid://bfhdjwuatq4c8" path="res://Models/OBJ format/NeatFreakDesk.fbx" id="1_6is31"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mff1"]
+size = Vector3(0.86376953, 1.2905273, 1.7929077)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_028rc"]
+size = Vector3(0.6032773, 1.4198608, 0.7126465)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1487537731]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=587004594]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.3293457, 0.638916, 0.41690063)
+shape = SubResource("BoxShape3D_7mff1")
+
+[node name="NeatFreakDesk" parent="." unique_id=1356063216 instance=ExtResource("1_6is31")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=797811416]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.3162386, 0.63548464, 0.317398)
+shape = SubResource("BoxShape3D_028rc")

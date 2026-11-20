@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dph404opd2kcx"]
+
+[ext_resource type="ArrayMesh" uid="uid://cme54ykag7r14" path="res://Models/OBJ format/Drawer_1.obj" id="1_7o03v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qml2l"]
+size = Vector3(2.8029785, 1.3960571, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vwom"]
+albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_028rc"]
+albedo_color = Color(0.9096763, 0.6748496, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ektiu"]
+albedo_color = Color(0.2790934, 0.19558872, 0.18067715, 1)
+
+[node name="Node3D" type="StaticBody3D" unique_id=722338398]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=437938723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036621094, 0.6614685, 2.9802322e-08)
+shape = SubResource("BoxShape3D_qml2l")
+
+[node name="Drawer1" type="MeshInstance3D" parent="." unique_id=131947985]
+mesh = ExtResource("1_7o03v")
+surface_material_override/0 = SubResource("StandardMaterial3D_7vwom")
+surface_material_override/1 = SubResource("StandardMaterial3D_028rc")
+surface_material_override/2 = SubResource("StandardMaterial3D_ektiu")

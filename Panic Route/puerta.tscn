@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dd0auxuq8ankr"]
+
+[ext_resource type="Script" uid="uid://ctca16a8miqb3" path="res://puerta.gd" id="1_8gvf5"]
+[ext_resource type="Script" uid="uid://chnn2jclfuse1" path="res://accion_puerta.gd" id="2_1h0p7"]
+[ext_resource type="ArrayMesh" uid="uid://lgnoaa7wjbwt" path="res://Models/,,,/CHAHIN_DOOR.obj" id="2_ufeg8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24v0a"]
+albedo_color = Color(0.10482802, 0.00015463207, 0.26471722, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vt3uj"]
+size = Vector3(0.3960266, 3.8873138, 1.8648071)
+
+[node name="puerta" type="StaticBody3D" unique_id=1231194615]
+script = ExtResource("1_8gvf5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=749320854]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0, 0.82338905)
+mesh = ExtResource("2_ufeg8")
+surface_material_override/0 = SubResource("StandardMaterial3D_24v0a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=110962749]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.02229309, 0.043525696, 0.85782695)
+shape = SubResource("BoxShape3D_vt3uj")
+
+[node name="AccionPuerta" type="Node" parent="." unique_id=464842121]
+script = ExtResource("2_1h0p7")

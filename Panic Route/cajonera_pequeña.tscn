@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c6xegtbsdlarh"]
+
+[ext_resource type="ArrayMesh" uid="uid://i5hr5rdgink8" path="res://Models/OBJ format/NightStand_3.obj" id="1_sveob"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mff1"]
+albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_028rc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0c4f"]
+
+[node name="Node3D" type="StaticBody3D" unique_id=389186833]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=324707368]
+mesh = ExtResource("1_sveob")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+surface_material_override/1 = SubResource("StandardMaterial3D_028rc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=700611465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37081754, 0)
+shape = SubResource("BoxShape3D_r0c4f")

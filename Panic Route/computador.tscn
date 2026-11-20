@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://deypuklrfyegy"]
+
+[ext_resource type="ArrayMesh" uid="uid://1jqu80vydhf6" path="res://Models/OBJ format/Computer.obj" id="1_n2s4e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvo1v"]
+albedo_color = Color(0.14509805, 0.28627452, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mft1x"]
+albedo_color = Color(0.1663743, 0.1663743, 0.1663743, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sga6r"]
+albedo_color = Color(0.06224207, 0, 0.0062828544, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0fp1"]
+albedo_color = Color(0.93333334, 0.16470589, 0.16470589, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snrvf"]
+albedo_color = Color(0.09911091, 0.09797683, 0.2808773, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im6ay"]
+albedo_color = Color(0.13105848, 0.1255402, 0.24921063, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mff1"]
+size = Vector3(1.2663574, 0.52734375, 1.0786133)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1329017807]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1367901078]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0)
+mesh = ExtResource("1_n2s4e")
+surface_material_override/0 = SubResource("StandardMaterial3D_nvo1v")
+surface_material_override/1 = SubResource("StandardMaterial3D_mft1x")
+surface_material_override/2 = SubResource("StandardMaterial3D_sga6r")
+surface_material_override/3 = SubResource("StandardMaterial3D_e0fp1")
+surface_material_override/7 = SubResource("StandardMaterial3D_snrvf")
+surface_material_override/8 = SubResource("StandardMaterial3D_im6ay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1271738768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20324707, 0.23632813, -0.03930664)
+shape = SubResource("BoxShape3D_7mff1")
