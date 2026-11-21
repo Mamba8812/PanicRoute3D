@@ -10,7 +10,7 @@ albedo_color = Color(0.10482802, 0.00015463207, 0.26471722, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vt3uj"]
 size = Vector3(0.3960266, 3.8873138, 1.8648071)
 
-[node name="puerta" type="StaticBody3D" unique_id=1231194615]
+[node name="puerta" type="StaticBody3D" unique_id=1231194615 groups=["puertas"]]
 script = ExtResource("1_8gvf5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=749320854]

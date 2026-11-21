@@ -12,3 +12,6 @@
 
 3. **[Plan de Desarrollo y Mejoras](plan_desarrollo.md)**  
    Análisis comparativo entre el concepto y la plantilla actual, diagnóstico de los problemas reportados (espacio/obstrucción, IA del civil, retardo de puertas, dimensiones del mapa) y plan de acción por fases para alcanzar la jugabilidad deseada.
+
+4. **[Guía Técnica y de Presentación Universitaria](guia_presentacion_universidad.md)**  
+   Documento completo de apoyo para la exposición del proyecto: explica todas las mecánicas implementadas, creación de objetos 3D, arquitectura técnica, flujo de ejecución, estado actual y guía de preguntas y respuestas frente al profesor (con explicaciones técnicas y explicaciones sencillas).

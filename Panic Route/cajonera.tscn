@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cme54ykag7r14" path="res://Models/OBJ format/Drawer_1.obj" id="1_7o03v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qml2l"]
-size = Vector3(2.8029785, 1.3960571, 1)
+size = Vector3(1.6, 1.2, 0.75)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vwom"]
 albedo_color = Color(0.39607844, 0.28627452, 0.2627451, 1)

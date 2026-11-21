@@ -281,6 +281,12 @@ light_color = Color(1, 0.92, 0.8, 1)
 light_energy = 1.2
 omni_range = 8.0
 
+[node name="Luz_BanoSur" type="OmniLight3D" parent="LucesMapa" unique_id=714462830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3.2, 10)
+light_color = Color(0.92, 0.96, 1, 1)
+light_energy = 1.35
+omni_range = 8.5
+
 [node name="Luz_Reception" type="OmniLight3D" parent="LucesMapa" unique_id=304485614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 3.2, 6)
 light_color = Color(0.85, 0.92, 1, 1)
@@ -591,6 +597,305 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.7329018, 0, 11.422362
 [node name="Node3D12" parent="NavigationRegion3D/Muebles" unique_id=1368823245 instance=ExtResource("13_q5c6p")]
 transform = Transform3D(-1.1, 0, -9.616505e-08, 0, 1.1, 0, 9.616505e-08, 0, -1.1, 0.45170903, 0, 12.378964)
 
+[node name="Baño" type="Node3D" parent="NavigationRegion3D/Muebles" unique_id=271206106]
+
+[node name="BathroomMirror1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/Baño" unique_id=42412809]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 19.82521, 2.7942116, -7.93723)
+mesh = ExtResource("21_3c8yq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ifhw6")
+surface_material_override/1 = SubResource("StandardMaterial3D_imu58")
+
+[node name="BathroomSink" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/Baño" unique_id=1975933340]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 19.63207, 0.40162086, -7.935333)
+mesh = ExtResource("22_hrygr")
+surface_material_override/0 = SubResource("StandardMaterial3D_darab")
+
+[node name="BathroomToilet" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/Baño" unique_id=647132244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.940454, 0.013109, -13.057073)
+mesh = ExtResource("23_8qufa")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+
+[node name="BathroomToiletPaper" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/Baño" unique_id=408792216]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 17.265778, 1.3595778, -12.084967)
+mesh = ExtResource("24_1equp")
+surface_material_override/0 = SubResource("StandardMaterial3D_028rc")
+
+[node name="Carpet2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/Baño" unique_id=700232787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.7, 18.724268, 0.000867, -9.61363)
+mesh = ExtResource("25_jq2gp")
+surface_material_override/0 = SubResource("StandardMaterial3D_7rtah")
+surface_material_override/1 = SubResource("StandardMaterial3D_0mq64")
+
+[node name="BañoSur" type="Node3D" parent="NavigationRegion3D/Muebles" unique_id=76785873]
+
+[node name="BathroomMirror_S1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=288450084]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 19.825, 2.794, 8)
+mesh = ExtResource("21_3c8yq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ifhw6")
+surface_material_override/1 = SubResource("StandardMaterial3D_imu58")
+
+[node name="BathroomSink_S1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1820763831]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 19.632, 0.402, 8)
+mesh = ExtResource("22_hrygr")
+surface_material_override/0 = SubResource("StandardMaterial3D_darab")
+
+[node name="BathroomMirror_S2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=432921171]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 19.825, 2.794, 10.4)
+mesh = ExtResource("21_3c8yq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ifhw6")
+surface_material_override/1 = SubResource("StandardMaterial3D_imu58")
+
+[node name="BathroomSink_S2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1549302145]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 19.632, 0.402, 10.4)
+mesh = ExtResource("22_hrygr")
+surface_material_override/0 = SubResource("StandardMaterial3D_darab")
+
+[node name="BathroomToilet_S1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1876960037]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13.6, 0.013, 13.05)
+mesh = ExtResource("23_8qufa")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+
+[node name="BathroomToilet_S2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=392448321]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16, 0.013, 13.05)
+mesh = ExtResource("23_8qufa")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+
+[node name="BathroomToilet_S3" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1813670441]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.25743, 0.013, 13.05)
+mesh = ExtResource("23_8qufa")
+surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
+
+[node name="DivisorBano_S1" type="CSGBox3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=918690973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8, 1.1, 12.7)
+size = Vector3(0.15, 2.2, 2.2)
+material = SubResource("ParedMat")
+
+[node name="DivisorBano_S2" type="CSGBox3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=634555323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2, 1.1, 12.7)
+size = Vector3(0.15, 2.2, 2.2)
+material = SubResource("ParedMat")
+
+[node name="BathroomToiletPaper_S1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1307654020]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 12.26, 1.36, 12.3)
+mesh = ExtResource("24_1equp")
+surface_material_override/0 = SubResource("StandardMaterial3D_028rc")
+
+[node name="BathroomToiletPaper_S2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1038749392]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 14.95, 1.36, 12.3)
+mesh = ExtResource("24_1equp")
+surface_material_override/0 = SubResource("StandardMaterial3D_028rc")
+
+[node name="BathroomToiletPaper_S3" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1375170111]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 17.35, 1.36, 12.3)
+mesh = ExtResource("24_1equp")
+surface_material_override/0 = SubResource("StandardMaterial3D_028rc")
+
+[node name="Carpet_BanoS1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=2079497153]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 2.2, 18.5, 0.005, 9.2)
+mesh = ExtResource("25_jq2gp")
+surface_material_override/0 = SubResource("StandardMaterial3D_7rtah")
+surface_material_override/1 = SubResource("StandardMaterial3D_0mq64")
+
+[node name="Cajonera_BanoSur" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1993304418 instance=ExtResource("5_fbxix")]
+transform = Transform3D(-6.556708e-08, 0, 1, 0, 1.5, 0, -1.5, 0, -4.371139e-08, 12.6, 0, 9.5)
+
+[node name="Planta_BanoSur" type="MeshInstance3D" parent="NavigationRegion3D/Muebles/BañoSur" unique_id=1475244113]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.8, 0, 6.9)
+mesh = ExtResource("6_ri3aj")
+surface_material_override/0 = SubResource("StandardMaterial3D_quh6u")
+surface_material_override/1 = SubResource("StandardMaterial3D_h4i7u")
+surface_material_override/2 = SubResource("StandardMaterial3D_vdhxm")
+
+[node name="LightStand1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1564390160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.532604, 0, -13.338533)
+mesh = ExtResource("27_yqr1d")
+surface_material_override/0 = SubResource("StandardMaterial3D_yqr1d")
+surface_material_override/1 = SubResource("StandardMaterial3D_ltvhs")
+
+[node name="ShelfSmall1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1807277943]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -16.954018, 0.021108953, -13.435023)
+mesh = ExtResource("28_ltvhs")
+
+[node name="WindowLarge2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=23918228]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -16.964546, 1.3982884, -13.869178)
+mesh = SubResource("ArrayMesh_fbxix")
+surface_material_override/1 = SubResource("StandardMaterial3D_s7y03")
+
+[node name="CurtainsDouble" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1320602176]
+transform = Transform3D(1.2, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.991982, 1.0595449, -13.709584)
+mesh = ExtResource("30_c2nrx")
+surface_material_override/0 = SubResource("StandardMaterial3D_q5c6p")
+surface_material_override/1 = SubResource("StandardMaterial3D_6uuce")
+
+[node name="TableRoundLarge" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1987434908]
+transform = Transform3D(-2.1855695e-07, 0, 2, 0, 4, 0, -5, 0, -8.742278e-08, -14.66087, 0, -6)
+mesh = ExtResource("29_c2nrx")
+
+[node name="Carpet1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=480999912]
+transform = Transform3D(-4.371139e-08, 0, 4.5, 0, 1, 0, -1, 0, -1.9670125e-07, 5, 0.005, 4)
+mesh = ExtResource("33_6uuce")
+surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
+surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
+
+[node name="Carpet4" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=123586926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6, -17, 0.005, -1.7639928)
+mesh = ExtResource("33_6uuce")
+surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
+surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
+
+[node name="Carpet5" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1820916428]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, -9.661137, 0.005, -0.3381338)
+mesh = ExtResource("33_6uuce")
+surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
+surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
+
+[node name="Carpet3" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1912893036]
+transform = Transform3D(-4.371139e-08, 0, 4.5, 0, 1, 0, -1, 0, -1.9670125e-07, 5, 0.001, -4)
+mesh = ExtResource("33_6uuce")
+surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
+surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
+
+[node name="Cajonera1" parent="NavigationRegion3D/Muebles" unique_id=722338398 instance=ExtResource("34_m3gi3")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.036, 0, -5.498)
+
+[node name="Cajonera2" parent="NavigationRegion3D/Muebles" unique_id=888866967 instance=ExtResource("35_m3gi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.054774, 0, -13.326155)
+
+[node name="CouchMedium1" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1058180010]
+transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, -18.697498, 0, -6)
+mesh = ExtResource("35_ifhw6")
+surface_material_override/0 = SubResource("StandardMaterial3D_64a6s")
+
+[node name="EscritorioComp1" parent="NavigationRegion3D/Muebles" unique_id=1487537731 instance=ExtResource("35_imu58")]
+transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, -17.455212, 0, 7)
+
+[node name="EscritorioComp2" parent="NavigationRegion3D/Muebles" unique_id=1243522016 instance=ExtResource("35_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -11)
+
+[node name="Comp1" parent="NavigationRegion3D/Muebles" unique_id=1329017807 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.491022, 1.6576993, -10)
+
+[node name="Comp2" parent="NavigationRegion3D/Muebles" unique_id=1808313400 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.478923, 1.6560628, 8.524074)
+
+[node name="Comp3" parent="NavigationRegion3D/Muebles" unique_id=784586258 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.76450825, 1.6560628, 8.524074)
+
+[node name="Comp4" parent="NavigationRegion3D/Muebles" unique_id=1096612855 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.547704, 1.6560628, -11.215457)
+
+[node name="Comp5" parent="NavigationRegion3D/Muebles" unique_id=48629260 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69602, 1.6560628, -11.215457)
+
+[node name="Comp6" parent="NavigationRegion3D/Muebles" unique_id=691390367 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.748972, 1.6560628, 11.826436)
+
+[node name="Comp7" parent="NavigationRegion3D/Muebles" unique_id=718224496 instance=ExtResource("36_ifhw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36087346, 1.6560628, 11.826436)
+
+[node name="EscritorioComp3" parent="NavigationRegion3D/Muebles" unique_id=1086738792 instance=ExtResource("35_imu58")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17, 0.004, -1.4432293)
+
+[node name="MarcoPuerta1" parent="NavigationRegion3D/Muebles" unique_id=654293894 instance=ExtResource("36_imu58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -0.115142465)
+
+[node name="MarcoPuerta2" parent="NavigationRegion3D/Muebles" unique_id=648980123 instance=ExtResource("36_imu58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3.977)
+
+[node name="MarcoPuerta3" parent="NavigationRegion3D/Muebles" unique_id=947683509 instance=ExtResource("36_imu58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4.161497)
+
+[node name="MarcoPuerta4" parent="NavigationRegion3D/Muebles" unique_id=284808117 instance=ExtResource("36_imu58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4.161497)
+
+[node name="MarcoPuerta5" parent="NavigationRegion3D/Muebles" unique_id=2110220456 instance=ExtResource("36_imu58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -8.18619)
+
+[node name="MarcoPuerta6" parent="NavigationRegion3D/Muebles" unique_id=1113292926 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.653664, 0, 2)
+
+[node name="MarcoPuerta7" parent="NavigationRegion3D/Muebles" unique_id=1610424650 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9111705, 0, 5.939247)
+
+[node name="MarcoPuerta8" parent="NavigationRegion3D/Muebles" unique_id=952823244 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.355255, 0, 6)
+
+[node name="MarcoPuerta9" parent="NavigationRegion3D/Muebles" unique_id=502001792 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.111071, 0, -6)
+
+[node name="MarcoPuerta10" parent="NavigationRegion3D/Muebles" unique_id=2007425193 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.85218287, 0, -6)
+
+[node name="MarcoPuerta11" parent="NavigationRegion3D/Muebles" unique_id=2091925274 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.899, 0, -6)
+
+[node name="MarcoPuerta12" parent="NavigationRegion3D/Muebles" unique_id=2027157060 instance=ExtResource("36_imu58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9151468, 0, -2)
+
+[node name="BookcaseBooks" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1074454254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9330411, 0.018219477, -13.597474)
+mesh = ExtResource("35_fbxix")
+
+[node name="BookcaseBooks2" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1065241438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9330411, 0.018219477, -13.597474)
+mesh = ExtResource("35_fbxix")
+surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
+surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
+surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
+surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
+surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
+surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
+surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
+surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
+surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
+surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
+surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
+
+[node name="BookcaseBooks5" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=783786388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.87292, 0.018219477, -5.407941)
+mesh = ExtResource("35_fbxix")
+surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
+surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
+surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
+surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
+surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
+surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
+surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
+surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
+surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
+surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
+surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
+
+[node name="BookcaseBooks3" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=31287958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7934072, 0.018219477, -13.597474)
+mesh = ExtResource("35_fbxix")
+surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
+surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
+surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
+surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
+surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
+surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
+surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
+surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
+surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
+surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
+surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
+
+[node name="BookcaseBooks4" type="MeshInstance3D" parent="NavigationRegion3D/Muebles" unique_id=1226863424]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.343687, 0.018219477, -7.7417183)
+mesh = ExtResource("35_fbxix")
+surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
+surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
+surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
+surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
+surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
+surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
+surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
+surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
+surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
+surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
+surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
+
 [node name="Houseplant1" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=2110007382]
 transform = Transform3D(0.69957995, 0, -1.3268714, 0, 1.5, 0, 1.3268714, 0, 0.69957995, 5.1482363, 0, -13.135324)
 mesh = ExtResource("6_ri3aj")
@@ -638,6 +943,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.1, 9.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, -2)
 
 [node name="Puertas" type="Node3D" parent="." unique_id=673510846]
+
+[node name="puerta" parent="Puertas" unique_id=1231194615 instance=ExtResource("35_darab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5239365, -0.9013451)
+
+[node name="puerta2" parent="Puertas" unique_id=1048353960 instance=ExtResource("35_darab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5239365, 3.1904728)
+
+[node name="puerta3" parent="Puertas" unique_id=704098431 instance=ExtResource("35_darab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5239365, -4.9476995)
+
+[node name="puerta4" parent="Puertas" unique_id=1764911191 instance=ExtResource("35_darab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5239365, -4.9476995)
+
+[node name="puerta5" parent="Puertas" unique_id=1727521695 instance=ExtResource("35_darab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.5239365, -8.972393)
+
+[node name="puerta6" parent="Puertas" unique_id=77458564 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.884962, 1.5239365, 2)
+
+[node name="puerta7" parent="Puertas" unique_id=168883156 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.142469, 1.5239365, 5.948266)
+
+[node name="puerta8" parent="Puertas" unique_id=22339890 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.123957, 1.5239365, 6)
+
+[node name="puerta9" parent="Puertas" unique_id=1245883110 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.879772, 1.5239365, -6)
+
+[node name="puerta10" parent="Puertas" unique_id=794449215 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.08348131, 1.5239365, -6)
+
+[node name="puerta11" parent="Puertas" unique_id=910593744 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.130392, 1.5, -6)
+
+[node name="puerta12" parent="Puertas" unique_id=1168968292 instance=ExtResource("35_darab")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.146, 1.5, -2)
 
 [node name="FuegoManager" type="Node" parent="." unique_id=705206260 node_paths=PackedStringArray("punto_inicial")]
 script = ExtResource("8_fm")
@@ -710,258 +1051,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 9.5)
 script = ExtResource("9_pf")
 
 [node name="Entradas" type="Node" parent="." unique_id=19424802]
-
-[node name="Baño" type="Node" parent="." unique_id=271206106]
-
-[node name="BathroomMirror1" type="MeshInstance3D" parent="Baño" unique_id=42412809]
-transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 19.82521, 2.7942116, -7.93723)
-mesh = ExtResource("21_3c8yq")
-surface_material_override/0 = SubResource("StandardMaterial3D_ifhw6")
-surface_material_override/1 = SubResource("StandardMaterial3D_imu58")
-
-[node name="BathroomSink" type="MeshInstance3D" parent="Baño" unique_id=1975933340]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 19.63207, 0.40162086, -7.935333)
-mesh = ExtResource("22_hrygr")
-surface_material_override/0 = SubResource("StandardMaterial3D_darab")
-
-[node name="BathroomToilet" type="MeshInstance3D" parent="Baño" unique_id=647132244]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.940454, 0.013109, -13.057073)
-mesh = ExtResource("23_8qufa")
-surface_material_override/0 = SubResource("StandardMaterial3D_7mff1")
-
-[node name="BathroomToiletPaper" type="MeshInstance3D" parent="Baño" unique_id=408792216]
-transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 17.265778, 1.3595778, -12.084967)
-mesh = ExtResource("24_1equp")
-surface_material_override/0 = SubResource("StandardMaterial3D_028rc")
-
-[node name="Carpet2" type="MeshInstance3D" parent="Baño" unique_id=700232787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.7, 18.724268, 0.000867, -9.61363)
-mesh = ExtResource("25_jq2gp")
-surface_material_override/0 = SubResource("StandardMaterial3D_7rtah")
-surface_material_override/1 = SubResource("StandardMaterial3D_0mq64")
-
-[node name="LightStand1" type="MeshInstance3D" parent="." unique_id=1564390160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.532604, 0, -13.338533)
-mesh = ExtResource("27_yqr1d")
-surface_material_override/0 = SubResource("StandardMaterial3D_yqr1d")
-surface_material_override/1 = SubResource("StandardMaterial3D_ltvhs")
-
-[node name="ShelfSmall1" type="MeshInstance3D" parent="." unique_id=1807277943]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -16.954018, 0.021108953, -13.435023)
-mesh = ExtResource("28_ltvhs")
-
-[node name="WindowLarge2" type="MeshInstance3D" parent="." unique_id=23918228]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -16.964546, 1.3982884, -13.869178)
-mesh = SubResource("ArrayMesh_fbxix")
-surface_material_override/1 = SubResource("StandardMaterial3D_s7y03")
-
-[node name="CurtainsDouble" type="MeshInstance3D" parent="." unique_id=1320602176]
-transform = Transform3D(1.2, 0, 0, 0, 0.5, 0, 0, 0, 1, -16.991982, 1.0595449, -13.709584)
-mesh = ExtResource("30_c2nrx")
-surface_material_override/0 = SubResource("StandardMaterial3D_q5c6p")
-surface_material_override/1 = SubResource("StandardMaterial3D_6uuce")
-
-[node name="TableRoundLarge" type="MeshInstance3D" parent="." unique_id=1987434908]
-transform = Transform3D(-2.1855695e-07, 0, 2, 0, 4, 0, -5, 0, -8.742278e-08, -14.66087, 0, -6)
-mesh = ExtResource("29_c2nrx")
-
-[node name="Carpet1" type="MeshInstance3D" parent="." unique_id=480999912]
-transform = Transform3D(-4.371139e-08, 0, 4.5, 0, 1, 0, -1, 0, -1.9670125e-07, 5, 0.2, 4)
-mesh = ExtResource("33_6uuce")
-surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
-surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
-
-[node name="Carpet4" type="MeshInstance3D" parent="." unique_id=123586926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6, -17, 0.2, -1.7639928)
-mesh = ExtResource("33_6uuce")
-surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
-surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
-
-[node name="Carpet5" type="MeshInstance3D" parent="." unique_id=1820916428]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, -9.661137, 0.2, -0.3381338)
-mesh = ExtResource("33_6uuce")
-surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
-surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
-
-[node name="Carpet3" type="MeshInstance3D" parent="." unique_id=1912893036]
-transform = Transform3D(-4.371139e-08, 0, 4.5, 0, 1, 0, -1, 0, -1.9670125e-07, 5, 0.001, -4)
-mesh = ExtResource("33_6uuce")
-surface_material_override/0 = SubResource("StandardMaterial3D_hlqiu")
-surface_material_override/1 = SubResource("StandardMaterial3D_7vwom")
-
-[node name="Node3D" parent="." unique_id=722338398 instance=ExtResource("34_m3gi3")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.036, 0, -5.498)
-
-[node name="Node3D2" parent="." unique_id=888866967 instance=ExtResource("35_m3gi3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.054774, 0, -13.326155)
-
-[node name="CouchMedium1" type="MeshInstance3D" parent="." unique_id=1058180010]
-transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, -18.697498, 0, -6)
-mesh = ExtResource("35_ifhw6")
-surface_material_override/0 = SubResource("StandardMaterial3D_64a6s")
-
-[node name="Node3D3" parent="." unique_id=1487537731 instance=ExtResource("35_imu58")]
-transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, -17.455212, 0, 7)
-
-[node name="Node3D4" parent="." unique_id=1243522016 instance=ExtResource("35_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -11)
-
-[node name="Node3D5" parent="." unique_id=1329017807 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.491022, 1.6576993, -10)
-
-[node name="Node3D7" parent="." unique_id=1808313400 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.478923, 1.6560628, 8.524074)
-
-[node name="Node3D11" parent="." unique_id=784586258 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.76450825, 1.6560628, 8.524074)
-
-[node name="Node3D23" parent="." unique_id=1096612855 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.547704, 1.6560628, -11.215457)
-
-[node name="Node3D24" parent="." unique_id=48629260 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69602, 1.6560628, -11.215457)
-
-[node name="Node3D9" parent="." unique_id=691390367 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.748972, 1.6560628, 11.826436)
-
-[node name="Node3D10" parent="." unique_id=718224496 instance=ExtResource("36_ifhw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36087346, 1.6560628, 11.826436)
-
-[node name="Node3D6" parent="." unique_id=1086738792 instance=ExtResource("35_imu58")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17, 0.004, -1.4432293)
-
-[node name="puerta" parent="." unique_id=1231194615 instance=ExtResource("35_darab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5239365, -0.9013451)
-
-[node name="Node3D8" parent="." unique_id=654293894 instance=ExtResource("36_imu58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -0.115142465)
-
-[node name="puerta2" parent="." unique_id=1048353960 instance=ExtResource("35_darab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5239365, 3.1904728)
-
-[node name="Node3D12" parent="." unique_id=648980123 instance=ExtResource("36_imu58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3.977)
-
-[node name="puerta3" parent="." unique_id=704098431 instance=ExtResource("35_darab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5239365, -4.9476995)
-
-[node name="Node3D13" parent="." unique_id=947683509 instance=ExtResource("36_imu58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4.161497)
-
-[node name="puerta4" parent="." unique_id=1764911191 instance=ExtResource("35_darab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5239365, -4.9476995)
-
-[node name="Node3D14" parent="." unique_id=284808117 instance=ExtResource("36_imu58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -4.161497)
-
-[node name="puerta5" parent="." unique_id=1727521695 instance=ExtResource("35_darab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.5239365, -8.972393)
-
-[node name="Node3D15" parent="." unique_id=2110220456 instance=ExtResource("36_imu58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -8.18619)
-
-[node name="puerta6" parent="." unique_id=77458564 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.884962, 1.5239365, 2)
-
-[node name="Node3D16" parent="." unique_id=1113292926 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.653664, 0, 2)
-
-[node name="puerta7" parent="." unique_id=168883156 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.142469, 1.5239365, 5.948266)
-
-[node name="Node3D17" parent="." unique_id=1610424650 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9111705, 0, 5.939247)
-
-[node name="puerta8" parent="." unique_id=22339890 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.123957, 1.5239365, 6)
-
-[node name="Node3D18" parent="." unique_id=952823244 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.355255, 0, 6)
-
-[node name="puerta9" parent="." unique_id=1245883110 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.879772, 1.5239365, -6)
-
-[node name="Node3D19" parent="." unique_id=502001792 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.111071, 0, -6)
-
-[node name="puerta10" parent="." unique_id=794449215 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.08348131, 1.5239365, -6)
-
-[node name="Node3D20" parent="." unique_id=2007425193 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.85218287, 0, -6)
-
-[node name="puerta11" parent="." unique_id=910593744 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.130392, 1.5, -6)
-
-[node name="Node3D21" parent="." unique_id=2091925274 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.899, 0, -6)
-
-[node name="puerta12" parent="." unique_id=1168968292 instance=ExtResource("35_darab")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.146, 1.5, -2)
-
-[node name="Node3D22" parent="." unique_id=2027157060 instance=ExtResource("36_imu58")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9151468, 0, -2)
-
-[node name="BookcaseBooks" type="MeshInstance3D" parent="." unique_id=1074454254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9330411, 0.018219477, -13.597474)
-mesh = ExtResource("35_fbxix")
-
-[node name="BookcaseBooks2" type="MeshInstance3D" parent="." unique_id=1065241438]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9330411, 0.018219477, -13.597474)
-mesh = ExtResource("35_fbxix")
-surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
-surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
-surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
-surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
-surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
-surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
-surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
-surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
-surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
-surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
-surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
-
-[node name="BookcaseBooks5" type="MeshInstance3D" parent="." unique_id=783786388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.87292, 0.018219477, -5.407941)
-mesh = ExtResource("35_fbxix")
-surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
-surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
-surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
-surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
-surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
-surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
-surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
-surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
-surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
-surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
-surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
-
-[node name="BookcaseBooks3" type="MeshInstance3D" parent="." unique_id=31287958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7934072, 0.018219477, -13.597474)
-mesh = ExtResource("35_fbxix")
-surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
-surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
-surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
-surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
-surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
-surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
-surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
-surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
-surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
-surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
-surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")
-
-[node name="BookcaseBooks4" type="MeshInstance3D" parent="." unique_id=1226863424]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.343687, 0.018219477, -7.7417183)
-mesh = ExtResource("35_fbxix")
-surface_material_override/0 = SubResource("StandardMaterial3D_fbxix")
-surface_material_override/1 = SubResource("StandardMaterial3D_ri3aj")
-surface_material_override/2 = SubResource("StandardMaterial3D_2jcrr")
-surface_material_override/3 = SubResource("StandardMaterial3D_f56ti")
-surface_material_override/4 = SubResource("StandardMaterial3D_8uv73")
-surface_material_override/5 = SubResource("StandardMaterial3D_pvr0o")
-surface_material_override/6 = SubResource("StandardMaterial3D_7owe5")
-surface_material_override/8 = SubResource("StandardMaterial3D_kavhk")
-surface_material_override/9 = SubResource("StandardMaterial3D_ppked")
-surface_material_override/10 = SubResource("StandardMaterial3D_nfesi")
-surface_material_override/12 = SubResource("StandardMaterial3D_uqurw")

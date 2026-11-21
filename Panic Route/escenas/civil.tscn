@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btbidf61ylt57" path="res://personaje/character-male-d.glb" id="2_modelo"]
 
 [sub_resource type="CapsuleShape3D" id="Capsula_civil"]
-radius = 0.43408203
+radius = 0.26
 height = 1.75
 
 [sub_resource type="SphereShape3D" id="ZonaRecogida_shape"]
@@ -23,8 +23,8 @@ shape = SubResource("Capsula_civil")
 transform = Transform3D(-2.6, 0, -2.2729921e-07, 0, 2.6, 0, 2.2729921e-07, 0, -2.6, 0, 0, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1596495167]
-path_desired_distance = 0.5
-target_desired_distance = 1.4
+path_desired_distance = 0.85
+target_desired_distance = 1.2
 
 [node name="ZonaRecogida" type="Area3D" parent="." unique_id=1007105860]
 collision_layer = 0

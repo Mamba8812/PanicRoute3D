@@ -4,17 +4,17 @@ enum Estado { LISTA, ACTIVA, RECARGA }
 
 @export var tecla = "puerta"
 @export var duracion = 0.0
-@export var recarga = 1.0
+@export var recarga = 0.35
 
 @onready var pj = get_parent() # El padre es la Puerta (StaticBody3D)
 var estado = Estado.LISTA
 var tiempo = 0.0
 
+
 func _physics_process(delta):
 	tiempo -= delta
 	match estado:
 		Estado.LISTA:
-			# Preguntamos por la tecla Y si cumple la regla de proximidad y movimiento
 			if Input.is_action_just_pressed(tecla) and puede():
 				empezar()
 		Estado.ACTIVA:
@@ -24,38 +24,35 @@ func _physics_process(delta):
 			if tiempo <= 0.001:
 				estado = Estado.LISTA
 
+
 func puede():
-	# 1. Buscamos al personaje en la escena principal
-	var personaje = get_tree().current_scene.get_node_or_null("Personaje")
+	var personaje = get_tree().get_first_node_in_group("jugador")
+	if not personaje:
+		personaje = get_tree().current_scene.get_node_or_null("Personaje")
 	if not personaje:
 		return false
-		
-	# 2. Calculamos la distancia entre ESTA puerta y el personaje
-	var distancia = pj.global_position.distance_to(personaje.global_position)
-	
-	# 3. La regla: Solo puede abrirse si está a menos de 2.5 metros Y la puerta no se está moviendo
-	var esta_cerca = distancia < 2.5
+
+	# Medimos desde el centro real de la hoja de la puerta (offset z = 0.85)
+	var centro_puerta = pj.to_global(Vector3(0, 0, 0.85)) if pj is Node3D else pj.global_position
+	var distancia = min(
+		pj.global_position.distance_to(personaje.global_position),
+		centro_puerta.distance_to(personaje.global_position)
+	)
+
+	var esta_cerca = distancia < 2.8
 	var puerta_quieta = not pj.get("en_movimiento") if pj.has_method("get") else true
-	
+
 	return esta_cerca and puerta_quieta
+
 
 func empezar():
 	estado = Estado.ACTIVA
 	tiempo = duracion
-	print("empieza: ", tecla)
+
 
 func terminar():
 	estado = Estado.RECARGA
 	tiempo = recarga
-	
-	# Llamamos a la función de la puerta para que gire con bisagras
+
 	if pj.has_method("alternar"):
 		pj.alternar()
-		
-	# Imprimimos el estado para la tarea
-	if pj.get("abierta"):
-		print("abierta")
-	else:
-		print("cerrada")
-		
-	print("termina: ", tecla)

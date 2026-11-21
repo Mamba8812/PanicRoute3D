@@ -3,9 +3,9 @@ extends CharacterBody3D
 enum Estado { ESPERANDO, SIGUIENDO, EVACUADO, ELIMINADO }
 
 @export var objetivo: Node3D
-@export var rapidez = 3.1
+@export var rapidez = 3.7
 @export var distancia_parada = 1.15
-@export var radio_separacion = 0.75
+@export var radio_separacion = 0.7
 
 @onready var anim = $Modelo/AnimationPlayer
 @onready var nav_agent: NavigationAgent3D = get_node_or_null("NavigationAgent3D")
@@ -13,9 +13,13 @@ enum Estado { ESPERANDO, SIGUIENDO, EVACUADO, ELIMINADO }
 @onready var icono_alerta: Node3D = get_node_or_null("IconoAlerta")
 
 var estado = Estado.ESPERANDO
+var _tiempo_atascado = 0.0
+var _tiempo_desatasco = 0.0
+var _pos_anterior = Vector3.ZERO
 
 
 func _ready():
+	_pos_anterior = global_position
 	if zona_recogida != null:
 		zona_recogida.body_entered.connect(_on_zona_recogida_body_entered)
 
@@ -62,7 +66,14 @@ func _desvincular_fila():
 
 
 func _physics_process(delta):
-	velocity += get_gravity() * delta
+	if _tiempo_desatasco > 0.0:
+		_tiempo_desatasco -= delta
+		collision_mask = 0
+		global_position.y = 0.1
+		velocity.y = 0.0
+	else:
+		collision_mask = 1
+		velocity += get_gravity() * delta
 
 	match estado:
 		Estado.ESPERANDO:
@@ -82,6 +93,7 @@ func _physics_process(delta):
 
 			var distancia = _distancia_plana(global_position, objetivo.global_position)
 			if distancia <= distancia_parada:
+				_tiempo_atascado = 0.0
 				var sep = _fuerza_separacion()
 				velocity.x = sep.x
 				velocity.z = sep.z
@@ -91,13 +103,46 @@ func _physics_process(delta):
 					anim.play("idle")
 			else:
 				var destino = objetivo.global_position
-				if nav_agent != null and NavigationServer3D.map_get_iteration_id(nav_agent.get_navigation_map()) > 0:
+				# Si está cerca (< 3.5 m) o en modo desatasco, seguir directo al líder para no quedarse pegado a waypoints de muebles
+				if _tiempo_desatasco <= 0.0 and distancia > 3.5 and nav_agent != null and NavigationServer3D.map_get_iteration_id(nav_agent.get_navigation_map()) > 0:
 					nav_agent.target_position = objetivo.global_position
 					if not nav_agent.is_navigation_finished():
 						destino = nav_agent.get_next_path_position()
-				_ir_a(destino)
 
+				var rapidez_actual = rapidez * (1.3 if distancia > 3.2 else 1.0)
+				_ir_a(destino, rapidez_actual)
+
+				# Detección de atasco contra muebles o esquinas
+				var avance = _distancia_plana(global_position, _pos_anterior)
+				if avance < rapidez_actual * delta * 0.35 or is_on_wall():
+					_tiempo_atascado += delta
+					if is_on_wall():
+						_deslizar_obstaculo(objetivo.global_position, rapidez_actual)
+					if _tiempo_atascado > 0.45:
+						_tiempo_desatasco = 0.45
+						_tiempo_atascado = 0.0
+				else:
+					_tiempo_atascado = max(0.0, _tiempo_atascado - delta * 2.0)
+
+	_pos_anterior = global_position
 	move_and_slide()
+
+
+func _deslizar_obstaculo(meta: Vector3, vel: float):
+	var normal = get_wall_normal()
+	normal.y = 0.0
+	if normal.length() < 0.01:
+		return
+	normal = normal.normalized()
+	var hacia = (meta - global_position)
+	hacia.y = 0.0
+	if hacia.length() < 0.01:
+		return
+	var dir_deslizar = (hacia.normalized() - normal * hacia.normalized().dot(normal)) + normal * 0.35
+	if dir_deslizar.length() > 0.01:
+		dir_deslizar = dir_deslizar.normalized()
+		velocity.x = dir_deslizar.x * vel
+		velocity.z = dir_deslizar.z * vel
 
 
 func _fuerza_separacion() -> Vector3:
@@ -117,7 +162,7 @@ func _distancia_plana(a: Vector3, b: Vector3) -> float:
 	return Vector2(a.x, a.z).distance_to(Vector2(b.x, b.z))
 
 
-func _ir_a(p: Vector3):
+func _ir_a(p: Vector3, vel: float):
 	var hacia = p - global_position
 	hacia.y = 0.0
 	if hacia.length() < 0.05:
@@ -126,7 +171,7 @@ func _ir_a(p: Vector3):
 		anim.play("idle")
 		return
 	var dir = hacia.normalized()
-	velocity.x = dir.x * rapidez
-	velocity.z = dir.z * rapidez
+	velocity.x = dir.x * vel
+	velocity.z = dir.z * vel
 	basis = Basis.looking_at(dir)
 	anim.play("walk")
