@@ -36,20 +36,23 @@ func salir_de_fila(civil: Node3D):
 
 
 func recibir_dano_fuego(origen_fuego: Vector3):
-	if _invulnerable > 0.0:
+	if _invulnerable > 0.0 or salud <= 0:
 		return
-	_invulnerable = 1.2
+	_invulnerable = 0.55
 	salud -= 1
 	var dir = (global_position - origen_fuego)
 	dir.y = 0.0
 	if dir.length() > 0.01:
-		empuje = dir.normalized() * 6.0
+		empuje = dir.normalized() * 9.5
+	else:
+		empuje = -global_basis.z * 9.5
 	var gm = get_tree().get_first_node_in_group("game_manager")
 	if gm != null:
 		gm.actualizar_salud(salud)
 
 
 func _ready():
+	add_to_group("jugador")
 	if camara == null:
 		camara = get_viewport().get_camera_3d()
 
@@ -57,7 +60,11 @@ func _ready():
 func _physics_process(delta):
 	if _invulnerable > 0.0:
 		_invulnerable -= delta
-	empuje = empuje.lerp(Vector3.ZERO, 8.0 * delta)
+		# Parpadeo visual del modelo al quemarse
+		$Modelo.visible = int(_invulnerable * 20.0) % 2 == 0
+	else:
+		$Modelo.visible = true
+	empuje = empuje.lerp(Vector3.ZERO, 6.0 * delta)
 	velocity += get_gravity() * delta
 
 	var input_dir = Input.get_vector("move_left", "move_right",

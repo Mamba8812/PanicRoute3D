@@ -8,7 +8,8 @@ extends Node3D
 @onready var zona: Area3D = $ZonaPeligro
 @onready var obstaculo: NavigationObstacle3D = $NavigationObstacle3D
 
-@export var tiempo_preaviso = 3.0
+@export var tiempo_preaviso = 2.0
+@export var radio_quemadura = 1.35
 
 var activo = false
 var _t = 0.0
@@ -42,6 +43,21 @@ func _process(delta):
 	luz.light_energy = 2.8 + sin(_t * 1.7) * 0.55 + cos(_t * 2.9) * 0.25
 
 
+func _physics_process(_delta):
+	if not activo:
+		return
+	# 1. Revisar continuamente todos los cuerpos dentro del Area3D (no solo al entrar)
+	for body in zona.get_overlapping_bodies():
+		_aplicar_quemadura(body)
+
+	# 2. Respaldo por distancia plana al jugador para garantizar que siempre lo queme al pisar el foco
+	var jugador = get_tree().get_first_node_in_group("jugador")
+	if is_instance_valid(jugador):
+		var d = Vector2(global_position.x, global_position.z).distance_to(Vector2(jugador.global_position.x, jugador.global_position.z))
+		if d <= radio_quemadura:
+			_aplicar_quemadura(jugador)
+
+
 func _activar_fuego():
 	activo = true
 	base.visible = true
@@ -51,16 +67,21 @@ func _activar_fuego():
 	obstaculo.avoidance_enabled = true
 	luz.light_color = Color(1.0, 0.42, 0.06, 1.0)
 	for body in zona.get_overlapping_bodies():
-		_on_body_entered(body)
+		_aplicar_quemadura(body)
 
 
 func _on_body_entered(body: Node3D):
-	if not activo:
+	if activo:
+		_aplicar_quemadura(body)
+
+
+func _aplicar_quemadura(body: Node3D):
+	if not is_instance_valid(body):
 		return
 	if body.is_in_group("civiles") and body.has_method("eliminar_por_fuego"):
 		if body.eliminar_por_fuego():
 			var gm = get_tree().get_first_node_in_group("game_manager")
 			if gm != null:
 				gm.registrar_baja()
-	elif body.is_in_group("jugador") and body.has_method("recibir_dano_fuego"):
+	elif (body.is_in_group("jugador") or body.name == "Personaje") and body.has_method("recibir_dano_fuego"):
 		body.recibir_dano_fuego(global_position)

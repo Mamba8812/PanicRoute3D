@@ -2,15 +2,15 @@ extends Node
 
 @export_group("Balanceo del Fuego")
 ## Segundos antes de que aparezca el primer foco en la cocina.
-@export var retraso_inicial = 2.0
+@export var retraso_inicial = 3.0
 ## Segundos entre cada avance del fuego (subir = más fácil, bajar = más difícil).
-@export var intervalo_propagacion = 4.8
+@export var intervalo_propagacion = 6.8
 ## Probabilidad (0.0 a 1.0) de que en un turno el fuego se expanda por 2 rutas a la vez.
-@export_range(0.0, 1.0, 0.05) var probabilidad_doble_ruta = 0.55
+@export_range(0.0, 1.0, 0.05) var probabilidad_doble_ruta = 0.3
 ## Cuántos turnos resiste una puerta cerrada antes de que el fuego la abra y cruce.
 @export var resistencia_puerta_cerrada = 1
 ## Segundos durante los cuales el fuego prioriza quemar oficinas antes de cerrar el Corredor Sur.
-@export var tiempo_proteger_corredor_sur = 28.0
+@export var tiempo_proteger_corredor_sur = 40.0
 
 @export_group("Referencias")
 @export var escena_fuego: PackedScene
@@ -79,7 +79,7 @@ func _propagar_siguiente():
 	# 1. Priorizar caminos libres (con variedad entre rutas activas)
 	if not opciones_libres.is_empty():
 		var elegida = opciones_libres[randi() % opciones_libres.size()]
-		_encender_punto(elegida["destino"], 2.0)
+		_encender_punto(elegida["destino"], 2.5)
 		return
 
 	# 2. Si los caminos están frenados por puertas cerradas, presionar/abrir la puerta y avanzar
@@ -92,7 +92,7 @@ func _propagar_siguiente():
 		if golpes >= resistencia_puerta_cerrada:
 			if puerta.has_method("alternar") and not puerta.get("abierta"):
 				puerta.alternar()
-			_encender_punto(op["destino"], 2.0)
+			_encender_punto(op["destino"], 2.5)
 		return
 
 	# 3. Respaldo anti-bloqueo SOLO cuando ya se propagó por casi todo el mapa (>= 12 focos)
