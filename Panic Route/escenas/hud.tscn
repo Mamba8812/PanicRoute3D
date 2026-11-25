@@ -2,52 +2,536 @@
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pill"]
+bg_color = Color(0.043, 0.102, 0.196, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18, 0.49, 0.73, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0.04, 0.1, 0.55)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fire_bg"]
+bg_color = Color(0.03, 0.06, 0.12, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.35, 0.5, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fire_fill"]
+bg_color = Color(0.96, 0.28, 0.18, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pausa_btn"]
+bg_color = Color(0.055, 0.125, 0.235, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22, 0.56, 0.82, 0.95)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0.04, 0.1, 0.55)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pausa_hover"]
+bg_color = Color(0.1, 0.22, 0.38, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38, 0.75, 0.98, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_header"]
+bg_color = Color(0.07, 0.16, 0.29, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.22, 0.55, 0.8, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+content_margin_left = 12.0
+content_margin_top = 3.0
+content_margin_right = 12.0
+content_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_box"]
+bg_color = Color(0.043, 0.102, 0.196, 0.86)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18, 0.49, 0.73, 0.88)
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0.04, 0.1, 0.55)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_key_badge"]
+bg_color = Color(0.09, 0.2, 0.35, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.32, 0.68, 0.92, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 7.0
+content_margin_top = 2.0
+content_margin_right = 7.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alerta_amber"]
+bg_color = Color(0.18, 0.13, 0.05, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.96, 0.65, 0.14, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bottom_right"]
+bg_color = Color(0.043, 0.11, 0.2, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.16, 0.65, 0.55, 0.9)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0.05, 0.1, 0.55)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay_modal"]
+bg_color = Color(0.035, 0.085, 0.165, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.65, 0.92, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0, 0, 0.75)
+shadow_size = 16
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
 
-[node name="PanelEstado" type="PanelContainer" parent="."]
-offset_left = 24.0
-offset_top = 20.0
-offset_right = 250.0
-offset_bottom = 140.0
+[node name="TopBar" type="HBoxContainer" parent="."]
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 880.0
+offset_bottom = 82.0
+theme_override_constants/separation = 14
 
-[node name="Margin" type="MarginContainer" parent="PanelEstado"]
+[node name="PillCiviles" type="PanelContainer" parent="TopBar"]
+custom_minimum_size = Vector2(195, 66)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pill")
+
+[node name="Margin" type="MarginContainer" parent="TopBar/PillCiviles"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="TopBar/PillCiviles/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Icono" type="Label" parent="TopBar/PillCiviles/Margin/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "👥"
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="TopBar/PillCiviles/Margin/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Subtitulo" type="Label" parent="TopBar/PillCiviles/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.82, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+text = "Civiles vivos"
+
+[node name="Rescatados" type="Label" parent="TopBar/PillCiviles/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "7 / 7"
+
+[node name="PillTiempo" type="PanelContainer" parent="TopBar"]
+custom_minimum_size = Vector2(185, 66)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pill")
+
+[node name="Margin" type="MarginContainer" parent="TopBar/PillTiempo"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="TopBar/PillTiempo/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Icono" type="Label" parent="TopBar/PillTiempo/Margin/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "⏱"
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="TopBar/PillTiempo/Margin/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Subtitulo" type="Label" parent="TopBar/PillTiempo/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.82, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+text = "Tiempo transcurrido"
+
+[node name="Tiempo" type="Label" parent="TopBar/PillTiempo/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "00:00"
+
+[node name="PillFuego" type="PanelContainer" parent="TopBar"]
+custom_minimum_size = Vector2(285, 66)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pill")
+
+[node name="Margin" type="MarginContainer" parent="TopBar/PillFuego"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="TopBar/PillFuego/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Icono" type="Label" parent="TopBar/PillFuego/Margin/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.48, 0.2, 1)
+theme_override_font_sizes/font_size = 28
+text = "🔥"
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="TopBar/PillFuego/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Subtitulo" type="Label" parent="TopBar/PillFuego/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.82, 0.94, 1)
+theme_override_font_sizes/font_size = 12
+text = "Avance del fuego"
+
+[node name="HBoxBarra" type="HBoxContainer" parent="TopBar/PillFuego/Margin/HBox/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PorcentajeFuego" type="Label" parent="TopBar/PillFuego/Margin/HBox/VBox/HBoxBarra"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 21
+text = "7%"
+
+[node name="BarFuego" type="ProgressBar" parent="TopBar/PillFuego/Margin/HBox/VBox/HBoxBarra"]
+custom_minimum_size = Vector2(130, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_fire_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fire_fill")
+value = 7.0
+show_percentage = false
+
+[node name="BtnPausaTop" type="Button" parent="TopBar"]
+custom_minimum_size = Vector2(66, 66)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.92, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_pausa_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pausa_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pausa_hover")
+text = "❚❚"
+
+[node name="WrapControles" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -148.0
+offset_right = 210.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="TabControles" type="PanelContainer" parent="WrapControles"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tab_header")
+
+[node name="Lbl" type="Label" parent="WrapControles/TabControles"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Controles"
+
+[node name="PanelControles" type="PanelContainer" parent="WrapControles"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_box")
+
+[node name="Margin" type="MarginContainer" parent="WrapControles/PanelControles"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="WrapControles/PanelControles/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Fila1" type="HBoxContainer" parent="WrapControles/PanelControles/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Key" type="PanelContainer" parent="WrapControles/PanelControles/Margin/VBox/Fila1"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_key_badge")
+
+[node name="Lbl" type="Label" parent="WrapControles/PanelControles/Margin/VBox/Fila1/Key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "WASD"
+horizontal_alignment = 1
+
+[node name="Accion" type="Label" parent="WrapControles/PanelControles/Margin/VBox/Fila1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Mover"
+
+[node name="Fila2" type="HBoxContainer" parent="WrapControles/PanelControles/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Key" type="PanelContainer" parent="WrapControles/PanelControles/Margin/VBox/Fila2"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_key_badge")
+
+[node name="Lbl" type="Label" parent="WrapControles/PanelControles/Margin/VBox/Fila2/Key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "E"
+horizontal_alignment = 1
+
+[node name="Accion" type="Label" parent="WrapControles/PanelControles/Margin/VBox/Fila2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Interactuar"
+
+[node name="Fila3" type="HBoxContainer" parent="WrapControles/PanelControles/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Key" type="PanelContainer" parent="WrapControles/PanelControles/Margin/VBox/Fila3"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_key_badge")
+
+[node name="Lbl" type="Label" parent="WrapControles/PanelControles/Margin/VBox/Fila3/Key"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "ESP"
+horizontal_alignment = 1
+
+[node name="Accion" type="Label" parent="WrapControles/PanelControles/Margin/VBox/Fila3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Pausa Táctica"
+
+[node name="WrapDerecha" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -246.0
+offset_top = 14.0
+offset_right = -18.0
+offset_bottom = 300.0
+grow_horizontal = 0
+theme_override_constants/separation = 12
+
+[node name="WrapMinimapa" type="VBoxContainer" parent="WrapDerecha"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderMinimapa" type="HBoxContainer" parent="WrapDerecha/WrapMinimapa"]
+layout_mode = 2
+
+[node name="TabMinimapa" type="PanelContainer" parent="WrapDerecha/WrapMinimapa/HeaderMinimapa"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tab_header")
+
+[node name="Lbl" type="Label" parent="WrapDerecha/WrapMinimapa/HeaderMinimapa/TabMinimapa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Minimapa"
+
+[node name="CompassN" type="Label" parent="WrapDerecha/WrapMinimapa/HeaderMinimapa"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "N ▲  "
+
+[node name="PanelMinimapa" type="PanelContainer" parent="WrapDerecha/WrapMinimapa"]
+custom_minimum_size = Vector2(228, 164)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_box")
+
+[node name="Margin" type="MarginContainer" parent="WrapDerecha/WrapMinimapa/PanelMinimapa"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MinimapaCanvas" type="Control" parent="WrapDerecha/WrapMinimapa/PanelMinimapa/Margin"]
+custom_minimum_size = Vector2(204, 140)
+layout_mode = 2
+
+[node name="PanelAlerta" type="PanelContainer" parent="WrapDerecha"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_alerta_amber")
+
+[node name="Margin" type="MarginContainer" parent="WrapDerecha/PanelAlerta"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 8
 
-[node name="VBox" type="VBoxContainer" parent="PanelEstado/Margin"]
+[node name="HBox" type="HBoxContainer" parent="WrapDerecha/PanelAlerta/Margin"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
-[node name="Rescatados" type="Label" parent="PanelEstado/Margin/VBox"]
+[node name="IconoAlerta" type="Label" parent="WrapDerecha/PanelAlerta/Margin/HBox"]
 layout_mode = 2
-text = "Rescatados: 0 / 0"
+theme_override_colors/font_color = Color(1, 0.76, 0.18, 1)
+theme_override_font_sizes/font_size = 22
+text = "⚠"
 
-[node name="Bajas" type="Label" parent="PanelEstado/Margin/VBox"]
+[node name="TextoAlerta" type="Label" parent="WrapDerecha/PanelAlerta/Margin/HBox"]
 layout_mode = 2
-text = "Bajas: 0"
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.98, 0.93, 0.8, 1)
+theme_override_font_sizes/font_size = 13
+text = "¡El fuego se está expandiendo!"
+autowrap_mode = 2
 
-[node name="Salud" type="Label" parent="PanelEstado/Margin/VBox"]
+[node name="PanelSaludBottom" type="PanelContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -64.0
+offset_right = -18.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bottom_right")
+
+[node name="Margin" type="MarginContainer" parent="PanelSaludBottom"]
 layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="HBox" type="HBoxContainer" parent="PanelSaludBottom/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Icono" type="Label" parent="PanelSaludBottom/Margin/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.95, 0.55, 1)
+theme_override_font_sizes/font_size = 18
+text = "⚡"
+
+[node name="Salud" type="Label" parent="PanelSaludBottom/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 14
 text = "Salud: ♥ ♥ ♥"
 
-[node name="Tiempo" type="Label" parent="PanelEstado/Margin/VBox"]
+[node name="Bajas" type="Label" parent="PanelSaludBottom/Margin/HBox"]
 layout_mode = 2
-text = "Tiempo: 00:00"
-
-[node name="Ayuda" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -220.0
-offset_top = 14.0
-offset_right = 220.0
-offset_bottom = 40.0
-grow_horizontal = 2
-text = "WASD: Mover  |  E: Abrir/Cerrar Puerta  |  ESPACIO: Pausa"
-horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.25, 0.95, 0.55, 1)
+theme_override_font_sizes/font_size = 16
+text = "Evacuados: 0/7"
 
 [node name="PanelOverlay" type="PanelContainer" parent="."]
 visible = false
@@ -56,36 +540,56 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -120.0
-offset_right = 200.0
-offset_bottom = 120.0
+offset_left = -220.0
+offset_top = -130.0
+offset_right = 220.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay_modal")
 
-[node name="VBox" type="VBoxContainer" parent="PanelOverlay"]
+[node name="Margin" type="MarginContainer" parent="PanelOverlay"]
 layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="PanelOverlay/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
 alignment = 1
 
-[node name="Titulo" type="Label" parent="PanelOverlay/VBox"]
+[node name="Titulo" type="Label" parent="PanelOverlay/Margin/VBox"]
 layout_mode = 2
-text = "PAUSA"
+theme_override_colors/font_color = Color(0.38, 0.82, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "PAUSA TÁCTICA"
 horizontal_alignment = 1
 
-[node name="Detalle" type="Label" parent="PanelOverlay/VBox"]
+[node name="Detalle" type="Label" parent="PanelOverlay/Margin/VBox"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.94, 1, 1)
+theme_override_font_sizes/font_size = 15
 text = "Detalle"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Botones" type="HBoxContainer" parent="PanelOverlay/VBox"]
+[node name="Botones" type="HBoxContainer" parent="PanelOverlay/Margin/VBox"]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="BtnContinuar" type="Button" parent="PanelOverlay/VBox/Botones"]
+[node name="BtnContinuar" type="Button" parent="PanelOverlay/Margin/VBox/Botones"]
+custom_minimum_size = Vector2(120, 38)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pausa_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pausa_hover")
 text = "Continuar"
 
-[node name="BtnReiniciar" type="Button" parent="PanelOverlay/VBox/Botones"]
+[node name="BtnReiniciar" type="Button" parent="PanelOverlay/Margin/VBox/Botones"]
+custom_minimum_size = Vector2(120, 38)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pausa_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pausa_hover")
 text = "Reiniciar"
